@@ -1,4 +1,5 @@
 from groq import Groq
+from dotenv import load_dotenv
 import os
 
 class ModeloOpenAI:
@@ -6,6 +7,7 @@ class ModeloOpenAI:
         pass
 
 def modeloSimple(self):
+    load_dotenv()
     cliente = Groq(api_key=os.getenv("GROQ_API_KEY"))
     respuesta = cliente.chat.completions.create(model='llama-3.1-8b-instant',
                                                 messages=[{'role':'user',
