@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 import os
 import logging
 
-# Silenciar mensajes de gRPC / Google
 os.environ["GRPC_VERBOSITY"] = "NONE"
 os.environ["GRPC_CPP_VERBOSITY"] = "NONE"
 logging.getLogger("absl").setLevel(logging.ERROR)
@@ -16,37 +15,33 @@ os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
 
 def crear_chain_llmchain():
     """Crea un chain simple (Prompt + LLM)."""
-    
-    # Inicializar Google Gemini
+
     llm = ChatGoogleGenerativeAI(
-        model="gemini-2.5-flash", 
+        model="gemini-2.5-flash",
         temperature=0.4
     )
-    
-    # Crear el prompt
+
+    # 🔥 CORREGIDO:
+    # - input_variables en UNA sola lista
+    # - "contexto" bien escrito
+    # - prompt funcional
     prompt = PromptTemplate(
-        input_variables=["tema"],
-        template="Explícale a un niño el tema {tema}."
+        input_variables=["tema", "contexto"],
+        template="Usando el siguiente contexto:\n\n{contexto}\n\nExplica el tema: {tema}"
     )
 
-    # Nueva forma (con tubería)
     chain = prompt | llm
-    
-    # La función DEVUELVE el chain listo
     return chain
 
-#
-# --- Bloque de prueba ---
-# (Esto solo se ejecuta si corres "python 1_llmchain.py" directamente)
-#
+
 if __name__ == '__main__':
     print("Probando el 'Motor' 1: LLMChain...")
-    
-    # 1. Creamos el chain llamando a la función
+
     chain_de_prueba = crear_chain_llmchain()
-    
-    # 2. Ejecutamos la prueba
-    respuesta = chain_de_prueba.invoke({"tema": "el aprendizaje automático"})
-    
-    # 3. Imprimimos el contenido (como lo tenías tú)
+
+    respuesta = chain_de_prueba.invoke({
+        "tema": "el aprendizaje automático",
+        "contexto": "Es un área de la inteligencia artificial"
+    })
+
     print(respuesta.content)

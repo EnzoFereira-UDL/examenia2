@@ -51,23 +51,35 @@ class LoadVentanaLangChain(QtWidgets.QDialog):
     # Funcionalidad y llamada a modelos
 
     def logica_enviar_lc_1(self):
-        # El único que funciona por ahora
+
         if not self.chain_1:
             self.output_llm.setText("Error: El motor 1 no fue cargado.")
             return
-            
-        texto_usuario = self.input_llm.text()
-        if not texto_usuario:
+
+        tema = self.input_llm.text()
+        contexto = self.input_contexto.text()  # <--- Asegúrate que existe este QLineEdit
+
+        if not tema:
             self.output_llm.setText("Por favor, escribe un tema.")
             return
-            
+
+        if not contexto:
+            self.output_llm.setText("Por favor, escribe un contexto.")
+            return
+
         self.output_llm.setText("Procesando...")
+
         try:
-            # Tu chain_1 espera la variable "tema"
-            respuesta = self.chain_1.invoke({"tema": texto_usuario})
-            self.output_llm.setText(respuesta.content) 
+            respuesta = self.chain_1.invoke({
+                "tema": tema,
+                "contexto": contexto
+            })
+
+            self.output_llm.setText(respuesta.content)
+
         except Exception as e:
             self.output_llm.setText(f"Error en LangChain: {e}")
+
 
     # --- Lógica para los 7 motores PENDIENTES ---
     # (Solo muestran un error amigable)
