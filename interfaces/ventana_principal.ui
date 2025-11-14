@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Mi Aplicación IA</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* === TEMA HÍBRIDO (MENÚ OSCURO + CONTENIDO CLARO) === */
+
+/*
+  QMainWindow: El fondo general de la ventana.
+  Un gris suave para que el contenido resalte.
+*/
+QMainWindow {
+    background-color: #EAECEE; 
+}
+
+/*
+  QWidget: Estilo base para todos los widgets.
+*/
+QWidget {
+    color: #333333; /* Texto oscuro por defecto */
+    font-family: "Segoe UI", "Arial", sans-serif;
+    font-size: 10pt;
+    background-color: transparent; 
+}
+
+
+/* === QMenuBar (Barra de Menú Superior) === */
+QMenuBar {
+    background-color: #2C3E50; /* Un azul oscuro/casi negro */
+    color: #ECF0F1; /* Texto gris claro */
+    border-bottom: 1px solid #1C2833;
+    spacing: 4px; 
+}
+
+QMenuBar::item {
+    background-color: transparent;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+/* Al pasar el mouse, usamos el azul de acento */
+QMenuBar::item:selected,
+QMenuBar::item:hover {
+    background-color: #0078D7; 
+    color: #FFFFFF;
+}
+
+/* === QMenu (Menú Desplegable) === */
+QMenu {
+    background-color: #2C3E50; /* Fondo oscuro */
+    color: #ECF0F1;
+    border: 1px solid #566573; /* Borde más claro */
+    padding: 5px; 
+    margin: 2px; 
+}
+
+QMenu::item {
+    padding: 6px 24px; 
+    border-radius: 4px;
+    margin: 2px 0px;
+}
+
+QMenu::item:selected,
+QMenu::item:hover {
+    background-color: #0078D7; 
+    color: #FFFFFF;
+}
+
+QMenu::item:disabled {
+    color: #777777;
+    background-color: transparent;
+}
+
+QMenu::separator {
+    height: 1px;
+    background-color: #566573;
+    margin: 4px 0px;
+}
+
+
+/* === QStatusBar (Barra de Estado Inferior) === */
+QStatusBar {
+    background-color: #2C3E50;
+    color: #B0B0B0; 
+    border-top: 1px solid #1C2833;
+    padding: 4px;
+}
+
+QStatusBar QLabel {
+    color: #B0B0B0;
+    padding-left: 5px;
+}
+
+/* === El "Diseño" Central === */
+/*
+  Estilizamos el 'centralwidget' para que parezca una
+  tarjeta blanca flotando sobre el fondo gris.
+*/
+#centralwidget {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    
+    /* Le damos un margen para que "flote" */
+    margin: 10px;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menumodelos">
+    <property name="title">
+     <string>Modelos</string>
+    </property>
+    <addaction name="actionBasicos"/>
+    <addaction name="actionLangChain"/>
+    <addaction name="separator"/>
+    <addaction name="actionSalir"/>
+   </widget>
+   <addaction name="menumodelos"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionBasicos">
+   <property name="text">
+    <string>Basicos</string>
+   </property>
+  </action>
+  <action name="actionLangChain">
+   <property name="text">
+    <string>LangChain</string>
+   </property>
+  </action>
+  <action name="actionSalir">
+   <property name="text">
+    <string>Salir</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
