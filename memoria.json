@@ -1,0 +1,36 @@
+{
+  "history": [
+    {
+      "type": "human",
+      "content": "hola, me llamo enzo"
+    },
+    {
+      "type": "ai",
+      "content": "¡Hola, Enzo! Es un placer conocerte. ¿Cómo puedo ayudarte hoy?"
+    },
+    {
+      "type": "human",
+      "content": "tengo 21 años"
+    },
+    {
+      "type": "ai",
+      "content": "Gracias por compartirlo, Enzo. Es bueno saberlo.\n\nEntonces, para resumir: eres Enzo y tienes 21 años.\n\n¿Hay algo más que te gustaría contarme o en lo que pueda asistirte?"
+    },
+    {
+      "type": "human",
+      "content": "me gustan los koalas"
+    },
+    {
+      "type": "ai",
+      "content": "¡Ah, qué interesante! Los koalas son criaturas realmente adorables. Me imagino que te gustan por su aspecto tierno y su estilo de vida tranquilo.\n\nEntonces, para actualizar lo que sé de ti: eres Enzo, tienes 21 años y te gustan los koalas.\n\n¿Hay algo más que quieras compartir o algo en lo que pueda ayudarte?"
+    },
+    {
+      "type": "human",
+      "content": "estudio ingenieria en sistemas"
+    },
+    {
+      "type": "ai",
+      "content": "¡Eso es genial, Enzo! Ingeniería en Sistemas es una carrera muy interesante y con mucho futuro.\n\nEntonces, para resumir lo que sé de ti:\n\n*   **Nombre:** Enzo\n*   **Edad:** 21 años\n*   **Intereses:** Le gustan los koalas\n*   **Estudios:** Estudia Ingeniería en Sistemas\n\n¿Hay algo más que te gustaría contarme o en lo que pueda asistirte con tus estudios o cualquier otra cosa?"
+    }
+  ]
+}

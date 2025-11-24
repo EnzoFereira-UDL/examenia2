@@ -367,7 +367,7 @@ QLabel {
          <item>
           <widget class="QStackedWidget" name="stackedWidget">
            <property name="currentIndex">
-            <number>0</number>
+            <number>6</number>
            </property>
            <widget class="QWidget" name="page_llm">
             <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -419,7 +419,17 @@ QLabel {
              <item>
               <widget class="QLabel" name="label_sequential">
                <property name="text">
-                <string>N°2: SequentialChain</string>
+                <string>Idioma a Traducir</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="input_idioma"/>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_5">
+               <property name="text">
+                <string>Texto a Resumir:</string>
                </property>
               </widget>
              </item>
@@ -434,6 +444,13 @@ QLabel {
               </widget>
              </item>
              <item>
+              <widget class="QLabel" name="label_4">
+               <property name="text">
+                <string>Respuesta:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QTextEdit" name="output_sequential"/>
              </item>
             </layout>
@@ -443,7 +460,17 @@ QLabel {
              <item>
               <widget class="QLabel" name="label_simple">
                <property name="text">
-                <string>N°3: SimpleSequential</string>
+                <string>Idioma a usar:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="input_idioma2"/>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_6">
+               <property name="text">
+                <string>Texto:</string>
                </property>
               </widget>
              </item>
@@ -467,7 +494,7 @@ QLabel {
              <item>
               <widget class="QLabel" name="label_parseo">
                <property name="text">
-                <string>N°4: Parseo de Salida</string>
+                <string>Texto a resumir:</string>
                </property>
               </widget>
              </item>
@@ -491,7 +518,17 @@ QLabel {
              <item>
               <widget class="QLabel" name="label_variospasos">
                <property name="text">
-                <string>N°5: Varios Pasos (Chain Secuencial)</string>
+                <string>Idioma:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="input_idioma3"/>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_7">
+               <property name="text">
+                <string>Información:</string>
                </property>
               </widget>
              </item>
@@ -515,12 +552,9 @@ QLabel {
              <item>
               <widget class="QLabel" name="label_memoria">
                <property name="text">
-                <string>N°6: Memoria (Chat)</string>
+                <string>Chat</string>
                </property>
               </widget>
-             </item>
-             <item>
-              <widget class="QTextEdit" name="output_memoria"/>
              </item>
              <item>
               <widget class="QLineEdit" name="input_memoria"/>
@@ -531,6 +565,9 @@ QLabel {
                 <string>Enviar</string>
                </property>
               </widget>
+             </item>
+             <item>
+              <widget class="QTextEdit" name="output_memoria"/>
              </item>
             </layout>
            </widget>
@@ -544,9 +581,6 @@ QLabel {
               </widget>
              </item>
              <item>
-              <widget class="QTextEdit" name="output_persistencia"/>
-             </item>
-             <item>
               <widget class="QLineEdit" name="input_persistencia"/>
              </item>
              <item>
@@ -555,6 +589,9 @@ QLabel {
                 <string>Enviar</string>
                </property>
               </widget>
+             </item>
+             <item>
+              <widget class="QTextEdit" name="output_persistencia"/>
              </item>
             </layout>
            </widget>

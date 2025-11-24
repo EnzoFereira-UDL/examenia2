@@ -75,7 +75,7 @@ class Load_ventana_modelos_basicos(QtWidgets.QDialog):
         texto_usuario = self.input_prompt_2.text()
         print(f"[Memoria] Usuario dijo: {texto_usuario}")
         
-        # 🚀 Usamos el modelo de memoria con {"input": ...}
+        # Usamos el modelo de memoria con {"input": ...}
         respuesta_dict = self.modelo_memoria.invoke({"input": texto_usuario})
         
         # (Asumimos que la respuesta está en 'response')

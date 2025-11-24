@@ -1,4 +1,3 @@
-# Contenido COMPLETO para: load/load_ventana_modelos_LangChain.py
 from PyQt5 import QtWidgets, uic, QtCore
 from PyQt5.QtCore import QPropertyAnimation, QEasingCurve
 
@@ -81,39 +80,182 @@ class LoadVentanaLangChain(QtWidgets.QDialog):
             self.output_llm.setText(f"Error en LangChain: {e}")
 
 
-    # --- Lógica para los 7 motores PENDIENTES ---
-    # (Solo muestran un error amigable)
-
     def logica_enviar_lc_2(self):
+
         if not self.chain_2:
-            self.output_sequential.setText("Motor 2 (SequentialChain) aún no ha sido implementado.9\n Proximamente...")
+            self.output_sequential.setText("Error: Motor 2 no fue cargado.")
             return
-        # Aquí iría la lógica del motor 2...
+
+        texto = self.input_sequential.text()
+        idioma = self.input_idioma.text()
+
+        if not texto:
+            self.output_sequential.setText("Por favor, escribe un texto para procesar.")
+            return
+
+        if not idioma:
+            self.output_sequential.setText("Por favor, escribe un idioma (ej. inglés, francés, alemán).")
+            return
+
+        self.output_sequential.setText("Procesando...")
+
+        try:
+            # Ahora el chain recibe un diccionario de valores
+            resultado = self.chain_2.invoke({
+                "input": texto,
+                "idioma": idioma
+            })
+
+            salida = resultado.content if hasattr(resultado, "content") else str(resultado)
+            self.output_sequential.setText(salida)
+
+        except Exception as e:
+            self.output_sequential.setText(f"Error en LangChain: {e}")
+
         
     def logica_enviar_lc_3(self):
+
         if not self.chain_3:
-            self.output_simple.setText("Motor 3 (SimpleSequential) aún no ha sido implementado.9\n Proximamente...")
+            self.output_simple.setText("Error: El motor 3 no fue cargado.")
             return
+
+        texto = self.input_simple.text()
+        idioma = self.input_idioma2.text()
+
+        if not texto:
+            self.output_simple.setText("Por favor, ingresa un texto.")
+            return
+
+        if not idioma:
+            self.output_simple.setText("Por favor, ingresa un idioma.")
+            return
+
+        self.output_simple.setText("Procesando...")
+
+        try:
+            resultado = self.chain_3.invoke({
+                "input": texto,
+                "idioma": idioma
+            })
+
+            salida = resultado.content if hasattr(resultado, "content") else str(resultado)
+            self.output_simple.setText(salida)
+
+        except Exception as e:
+            self.output_simple.setText(f"Error en LangChain: {e}")
+
         
     def logica_enviar_lc_4(self):
+
         if not self.chain_4:
-            self.output_parseo.setText("Motor 4 (Parseo) aún no ha sido implementado.9\n Proximamente...")
+            self.output_parseo.setText("Error: Motor 4 no fue cargado.")
             return
+
+        texto = self.input_parseo.text()
+
+        if not texto:
+            self.output_parseo.setText("Por favor, escribe un texto para procesar.")
+            return
+
+        self.output_parseo.setText("Procesando...")
+
+        try:
+            resultado = self.chain_4.invoke({
+                "input": texto
+            })
+
+            # Como parser devuelve texto limpio, no es necesario .content
+            self.output_parseo.setText(str(resultado))
+
+        except Exception as e:
+            self.output_parseo.setText(f"Error en LangChain: {e}")
+
 
     def logica_enviar_lc_5(self):
+
         if not self.chain_5:
-            self.output_variospasos.setText("Motor 5 (Varios Pasos) aún no ha sido implementado.9\n Proximamente...")
+            self.output_variospasos.setText("Error: Motor 5 no fue cargado.")
             return
+
+        texto = self.input_variospasos.text()
+        idioma = self.input_idioma3.text()
+
+        if not texto:
+            self.output_variospasos.setText("Por favor, ingresa un texto.")
+            return
+
+        if not idioma:
+            self.output_variospasos.setText("Por favor, ingresa un idioma (ej. inglés, francés...).")
+            return
+
+        self.output_variospasos.setText("Procesando...")
+
+        try:
+            # OJO: Para que el segundo prompt funcione, debe recibir {idioma}
+            resultado = self.chain_5.invoke({
+                "input": texto,
+                "idioma": idioma
+            })
+
+            salida = resultado if isinstance(resultado, str) else str(resultado)
+            self.output_variospasos.setText(salida)
+
+        except Exception as e:
+            self.output_variospasos.setText(f"Error en LangChain: {e}")
+
 
     def logica_enviar_lc_6(self):
+
         if not self.chain_6:
-            self.output_memoria.setText("Motor 6 (Memoria) no implementado.")
+            self.output_memoria.setText("Error: Motor 6 no fue cargado.")
             return
 
-    def logica_enviar_lc_7(self):
-        if not self.chain_7:
-            self.output_persistencia.setText("Motor 7 (Persistencia) no implementado.")
+        texto = self.input_memoria.text()
+
+        if not texto:
+            self.output_memoria.setText("Por favor, escribe algo para el chat.")
             return
+
+        self.output_memoria.setText("Procesando...")
+
+        try:
+            # Llamar al motor
+            respuesta = self.chain_6(texto)
+
+            # Mostrar tipo chat
+            salida = (
+                self.output_memoria.toPlainText()
+                + f"\nTú: {texto}\nIA: {respuesta}\n"
+            )
+
+            self.output_memoria.setText(salida)
+            self.input_memoria.clear()
+
+        except Exception as e:
+            self.output_memoria.setText(f"Error en LangChain (Memoria): {e}")
+
+
+
+    def logica_enviar_lc_7(self):
+
+        if not self.chain_7:
+            self.output_persistencia.setText("Error: Motor 7 no fue cargado.")
+            return
+
+        texto = self.input_persistencia.text()
+
+        if not texto:
+            self.output_persistencia.setText("Por favor escribe un texto.")
+            return
+
+        self.output_persistencia.setText("Procesando...")
+
+        try:
+            respuesta = self.chain_7.invoke({"input": texto})
+            self.output_persistencia.setText(str(respuesta))
+        except Exception as e:
+            self.output_persistencia.setText(f"Error en LangChain: {e}")
+
 
     def logica_enviar_lc_8(self):
         if not self.chain_8:

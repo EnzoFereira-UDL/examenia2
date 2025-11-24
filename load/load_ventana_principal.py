@@ -13,7 +13,13 @@ from main_memoria import crear_modelo_chat_limitado
 #
 # --- <<< CAMBIO 1: Importamos SÓLO EL MOTOR 1 de LangChain >>> ---
 #
-from lc_1_llmchain import crear_chain_llmchain # (Asumiendo que el archivo se llama así)
+from lc_1_llmchain import crear_chain_llmchain
+from lc_2_sequientialchain import crear_chain_sequential # (Asumiendo que el archivo se llama así)
+from lc_3_simplesequientialchain import crear_chain_simple
+from lc_4_parseo import crear_chain_parseo
+from lc_5_varios_pasos import crear_chain_varios_pasos
+from lc_6_memoria import crear_chain_memoria
+from lc_7_persistencia import crear_chain_persistencia
 
 
 class Load_ventana_principal(QtWidgets.QMainWindow):
@@ -33,6 +39,12 @@ class Load_ventana_principal(QtWidgets.QMainWindow):
         # --- <<< CAMBIO 2: Cargamos SÓLO EL MOTOR 1 de LangChain >>> ---
         #
         self.lc_chain_1 = crear_chain_llmchain()
+        self.lc_chain_2 = crear_chain_sequential()
+        self.lc_chain_3 = crear_chain_simple()
+        self.lc_chain_4 = crear_chain_parseo()
+        self.lc_chain_5 = crear_chain_varios_pasos()
+        self.lc_chain_6 = crear_chain_memoria()
+        self.lc_chain_7 = crear_chain_persistencia()
         # (Los otros 7 motores aún no existen, no los cargamos)
         
         print("¡Modelos cargados y listos!")
@@ -58,13 +70,13 @@ class Load_ventana_principal(QtWidgets.QMainWindow):
         # --- <<< CAMBIO 3: Pasamos el motor 1 y "None" para los demás >>> ---
         #
         self.LangChain = LoadVentanaLangChain(
-            chain_1=self.lc_chain_1, # ¡El único que tenemos!
-            chain_2=None,
-            chain_3=None,
-            chain_4=None,
-            chain_5=None,
-            chain_6=None,
-            chain_7=None,
+            chain_1=self.lc_chain_1,
+            chain_2=self.lc_chain_2,
+            chain_3=self.lc_chain_3,
+            chain_4=self.lc_chain_4,
+            chain_5=self.lc_chain_5,
+            chain_6=self.lc_chain_6,
+            chain_7=self.lc_chain_7,
             chain_8=None
         )
         self.LangChain.exec_()
