@@ -258,9 +258,33 @@ class LoadVentanaLangChain(QtWidgets.QDialog):
 
 
     def logica_enviar_lc_8(self):
+
         if not self.chain_8:
-            self.output_memoria2.setText("Motor 8 (RAG) no implementado.")
+            self.output_memoria2.setText("Error: Motor 8 no fue cargado.")
             return
+
+        pregunta = self.input_memoria2.text().strip()
+
+        if not pregunta:
+            self.output_memoria2.setText("Por favor, escribe una pregunta.")
+            return
+
+        try:
+            # Llamar a RAG
+            respuesta = self.chain_8(pregunta)
+
+            # Estilo chat
+            salida = (
+                self.output_memoria2.toPlainText()
+                + f"\nTú: {pregunta}\nIA: {respuesta}\n"
+            )
+
+            self.output_memoria2.setText(salida)
+            self.input_memoria2.clear()
+
+        except Exception as e:
+            self.output_memoria2.setText(f"Error en RAG: {e}")
+
 
     def mousePressEvent(self, event):
         self.clickPosition = event.globalPos()

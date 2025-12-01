@@ -32,7 +32,9 @@ def crear_chain_simple():
 
     # 1. Prompt para RESUMIR
     prompt_resumen = PromptTemplate.from_template(
-        "Resume este texto:\n\n{input}"
+        "Resume el siguiente texto."
+    "No expliques, no des contexto, no agregues comentarios. "
+    "Devuelve únicamente el resumen.\n\nTexto:\n{input}"
     )
 
     # 2. Prompt para TRADUCIR

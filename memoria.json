@@ -31,6 +31,22 @@
     {
       "type": "ai",
       "content": "¡Eso es genial, Enzo! Ingeniería en Sistemas es una carrera muy interesante y con mucho futuro.\n\nEntonces, para resumir lo que sé de ti:\n\n*   **Nombre:** Enzo\n*   **Edad:** 21 años\n*   **Intereses:** Le gustan los koalas\n*   **Estudios:** Estudia Ingeniería en Sistemas\n\n¿Hay algo más que te gustaría contarme o en lo que pueda asistirte con tus estudios o cualquier otra cosa?"
+    },
+    {
+      "type": "human",
+      "content": "cual es mi nombre"
+    },
+    {
+      "type": "ai",
+      "content": "Tu nombre es **Enzo**."
+    },
+    {
+      "type": "human",
+      "content": "de que hemos platicado"
+    },
+    {
+      "type": "ai",
+      "content": "Hemos platicado sobre varias cosas, Enzo. Aquí tienes un resumen:\n\n1.  **Tu nombre:** Me dijiste que te llamas Enzo.\n2.  **Tu edad:** Compartiste que tienes 21 años.\n3.  **Tus gustos:** Me contaste que te gustan los koalas.\n4.  **Tus estudios:** Mencionaste que estudias Ingeniería en Sistemas.\n\nEn resumen, sé que eres Enzo, tienes 21 años, te gustan los koalas y estudias Ingeniería en Sistemas."
     }
   ]
 }

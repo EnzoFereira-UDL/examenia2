@@ -28,7 +28,9 @@ def crear_chain_sequential():
 
     # Prompt: RESUMIR
     prompt_resumen = PromptTemplate.from_template(
-        "Resume el siguiente texto:\n\n{input}"
+        "Resume el siguiente texto."
+    "No expliques, no des contexto, no agregues comentarios. "
+    "Devuelve únicamente el resumen.\n\nTexto:\n{input}"
     )
 
     # Prompt: TRADUCIR

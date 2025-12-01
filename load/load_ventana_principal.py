@@ -20,6 +20,7 @@ from lc_4_parseo import crear_chain_parseo
 from lc_5_varios_pasos import crear_chain_varios_pasos
 from lc_6_memoria import crear_chain_memoria
 from lc_7_persistencia import crear_chain_persistencia
+from lc_8_rag import crear_chain_rag
 
 
 class Load_ventana_principal(QtWidgets.QMainWindow):
@@ -45,6 +46,7 @@ class Load_ventana_principal(QtWidgets.QMainWindow):
         self.lc_chain_5 = crear_chain_varios_pasos()
         self.lc_chain_6 = crear_chain_memoria()
         self.lc_chain_7 = crear_chain_persistencia()
+        self.lc_chain_8 = crear_chain_rag()
         # (Los otros 7 motores aún no existen, no los cargamos)
         
         print("¡Modelos cargados y listos!")
@@ -77,7 +79,7 @@ class Load_ventana_principal(QtWidgets.QMainWindow):
             chain_5=self.lc_chain_5,
             chain_6=self.lc_chain_6,
             chain_7=self.lc_chain_7,
-            chain_8=None
+            chain_8=self.lc_chain_8
         )
         self.LangChain.exec_()
 

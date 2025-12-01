@@ -21,7 +21,9 @@ def crear_chain_varios_pasos():
 
     # Prompt 1 → Resumen
     prompt_resumen = PromptTemplate.from_template(
-        "Resume el siguiente texto: {input}"
+        "Resume el siguiente texto."
+    "No expliques, no des contexto, no agregues comentarios. "
+    "Devuelve únicamente el resumen.\n\nTexto:\n{input}"
     )
 
     # Prompt 2 → Traducción
