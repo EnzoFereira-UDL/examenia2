@@ -29,7 +29,7 @@ QMainWindow {
 */
 QWidget {
     color: #333333; /* Texto oscuro por defecto */
-    font-family: "Segoe UI", "Arial", sans-serif;
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;, sans-serif;
     font-size: 10pt;
     background-color: transparent; 
 }
@@ -102,7 +102,7 @@ QStatusBar QLabel {
     padding-left: 5px;
 }
 
-/* === El "Diseño" Central === */
+/* === El &quot;Diseño&quot; Central === */
 /*
   Estilizamos el 'centralwidget' para que parezca una
   tarjeta blanca flotando sobre el fondo gris.
@@ -111,7 +111,7 @@ QStatusBar QLabel {
     background-color: #FFFFFF;
     border-radius: 10px;
     
-    /* Le damos un margen para que "flote" */
+    /* Le damos un margen para que &quot;flote&quot; */
     margin: 10px;
 }</string>
   </property>
@@ -131,6 +131,7 @@ QStatusBar QLabel {
     </property>
     <addaction name="actionBasicos"/>
     <addaction name="actionLangChain"/>
+    <addaction name="actionCuestionarioIA"/>
     <addaction name="separator"/>
     <addaction name="actionSalir"/>
    </widget>
@@ -150,6 +151,11 @@ QStatusBar QLabel {
   <action name="actionSalir">
    <property name="text">
     <string>Salir</string>
+   </property>
+  </action>
+  <action name="actionCuestionarioIA">
+   <property name="text">
+    <string>CuestionarioIA</string>
    </property>
   </action>
  </widget>

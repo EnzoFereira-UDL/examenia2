@@ -4,6 +4,7 @@ from PyQt5 import QtWidgets,uic
 # --- Importamos las clases de las VENTANAS ---
 from .load_ventana_modelos_basicos import Load_ventana_modelos_basicos
 from .load_ventana_modelos_langChain import LoadVentanaLangChain
+from .load_ventana_modelos_cuestionario import Load_ventana_cuestionario
 
 # --- Importamos los "MOTORES BÁSICOS" ---
 from main import crear_modelo_simple
@@ -21,6 +22,8 @@ from lc_5_varios_pasos import crear_chain_varios_pasos
 from lc_6_memoria import crear_chain_memoria
 from lc_7_persistencia import crear_chain_persistencia
 from lc_8_rag import crear_chain_rag
+
+from cuestionario import crear_chain_rag2
 
 
 class Load_ventana_principal(QtWidgets.QMainWindow):
@@ -47,6 +50,9 @@ class Load_ventana_principal(QtWidgets.QMainWindow):
         self.lc_chain_6 = crear_chain_memoria()
         self.lc_chain_7 = crear_chain_persistencia()
         self.lc_chain_8 = crear_chain_rag()
+
+
+        self.cuestionario = crear_chain_rag2()
         # (Los otros 7 motores aún no existen, no los cargamos)
         
         print("¡Modelos cargados y listos!")
@@ -55,6 +61,7 @@ class Load_ventana_principal(QtWidgets.QMainWindow):
         # Conectamos las acciones del menú
         self.actionBasicos.triggered.connect(self.abrirVentanaBasico)
         self.actionLangChain.triggered.connect(self.abrirVentanaLangchain)
+        self.actionCuestionarioIA.triggered.connect(self.abrirVentanaCuestionario)
         self.actionSalir.triggered.connect(self.cerrarVentana)
     
     def abrirVentanaBasico(self):
@@ -65,7 +72,6 @@ class Load_ventana_principal(QtWidgets.QMainWindow):
             modelo_chat=self.modelo_chat_cargado
         )
         self.basicos.exec_()
-    
     
     def abrirVentanaLangchain(self):
         #
@@ -82,6 +88,13 @@ class Load_ventana_principal(QtWidgets.QMainWindow):
             chain_8=self.lc_chain_8
         )
         self.LangChain.exec_()
+
+    def abrirVentanaCuestionario(self):
+        # Instanciamos la ventana dedicada pasando el modelo
+        self.ventana_cuestionario = Load_ventana_cuestionario(
+            modelo_cuestionario=self.cuestionario
+        )
+        self.ventana_cuestionario.exec_()
 
     def cerrarVentana(self):
         self.close()

@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>647</width>
+    <height>471</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* === Fuente global === */
+* {
+    font-family: &quot;Poppins&quot;, &quot;Segoe UI&quot;, sans-serif;
+}
+
+/* === Estilo general === */
+QMainWindow {
+    background-color: #f5f5f5;
+    color: #2b2b2b;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+/* === Frames === */
+QFrame {
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #d9d9d9;
+}
+
+/* Barra superior */
+#frame_superior {
+    background-color: #ededed;
+    border: none;
+}
+
+/* Panel lateral */
+#frame_lateral {
+    background-color: #f2f2f2;
+    border-right: 1px solid #cccccc;
+}
+
+/* Área principal */
+#frame_paginas {
+    background-color: #ffffff;
+}
+
+/* === Botones === */
+QPushButton {
+    background-color: #e7e7e7;
+    color: #2b2b2b;
+    border: 1px solid #bfbfbf;
+    border-radius: 6px;
+    padding: 7px 12px;
+    font-weight: 500;
+    transition: 150ms;
+}
+
+QPushButton:hover {
+    background-color: #dcdcdc;
+}
+
+QPushButton:pressed {
+    background-color: #cfcfcf;
+}
+
+/* Botón principal (Menú) */
+#boton_menu {
+    background-color: #2f6db5; /* Azul Profesional */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+}
+#boton_menu:hover {
+    background-color: #275c99;
+}
+#boton_menu:pressed {
+    background-color: #1f4a7a;
+}
+
+/* Botón salir */
+#boton_cerrar {
+    background-color: #b94a48;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+}
+#boton_cerrar:hover {
+    background-color: #a94442;
+}
+#boton_salir:pressed {
+    background-color: #8a3a38;
+}
+
+/* === Botones laterales === */
+#btn_lc_1, #btn_lc_2, #btn_lc_3, #btn_lc_4,
+#btn_lc_5, #btn_lc_6, #btn_lc_7, #btn_lc_8 {
+    background-color: transparent;
+    border: none;
+    color: #3a3a3a;
+    text-align: left;
+    padding: 10px 22px;
+    font-size: 15px;
+    font-weight: 500;
+}
+#btn_lc_1:hover, #btn_lc_2:hover, #btn_lc_3:hover, #btn_lc_4:hover,
+#btn_lc_5:hover, #btn_lc_6:hover, #btn_lc_7:hover, #btn_lc_8:hover {
+    background-color: #e3e3e3;
+    color: #1a1a1a;
+}
+
+/* === Campos de texto === */
+QLineEdit, QTextEdit {
+    background-color: #ffffff;
+    color: #2b2b2b;
+    border: 1px solid #c9c9c9;
+    border-radius: 5px;
+    padding: 6px 8px;
+    font-size: 15px;
+}
+
+QLineEdit:focus, QTextEdit:focus {
+    border: 1px solid #2f6db5;
+    background-color: #f9fcff;
+}
+
+/* === Labels === */
+QLabel {
+    color: #2b2b2b;
+    font-size: 14px;
+    font-weight: 400;
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="1,8">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="frame_superior">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="boton_menu">
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>200</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Menú</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../imagenes/boton_menu.png</normaloff>../imagenes/boton_menu.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>64</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Preguntas</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>64</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="boton_cerrar">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../imagenes/boton_cerrar.png</normaloff>../imagenes/boton_cerrar.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="frame_central">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QFrame" name="frame_lateral">
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>0</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QPushButton" name="boton_llm">
+           <property name="text">
+            <string>Cuestionario IA</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>246</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_paginas">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QStackedWidget" name="stackedWidget">
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <widget class="QWidget" name="page_cuestionario">
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <item>
+              <widget class="QLabel" name="label_3">
+               <property name="text">
+                <string>PDF</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="boton_pdf">
+               <property name="text">
+                <string>Seleccionar PDF</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_2">
+               <property name="text">
+                <string>Respuestas:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="respuestas"/>
+             </item>
+             <item>
+              <widget class="QPushButton" name="boton_enviar">
+               <property name="text">
+                <string>Enviar</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTextEdit" name="output_response"/>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
